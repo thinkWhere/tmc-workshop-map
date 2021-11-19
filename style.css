@@ -59,3 +59,11 @@ html, body {
   content: "✖";
   color: black;
 }
+
+.gazetteer {
+  z-index: 1000;
+  position: absolute;
+  left: 5vw;
+  bottom: 10vh;
+ }
+ 

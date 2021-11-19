@@ -8,6 +8,7 @@ import getWFSLayer from "./wfs";
 import initPopover from "./popover";
 import projection from "./projection";
 import initInteractions from "./interactions";
+import initGazetteer from "./gazetteer";
 
 const mastermapWMTS = await getWMTSLayer("os_licensed_background_colour");
 const woodlandWMS = getWMSLayer("sf_nwss");
@@ -32,5 +33,15 @@ const map = new Map({
   }),
 });
 
+// Zoom to
+function zoomTo(coord_string) {
+  var split = coord_string.split(",");
+  if(split.length == 2) {
+    map.getView().setResolution(0.5);
+    map.getView().setCenter([parseInt(split[0]), parseInt(split[1])]);
+  }
+}
+
 // initPopover(map, woodlandWMS);
 initInteractions(map);
+initGazetteer(zoomTo);
