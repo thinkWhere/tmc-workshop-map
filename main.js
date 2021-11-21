@@ -3,6 +3,7 @@ import { Map, View } from "ol";
 import OSM from "ol/source/OSM.js";
 import projectionBNG from "./projection";
 import TileLayer from "ol/layer/Tile";
+import getWMTSLayer from "./wmts";
 
 // Create layer from imported functions
 const mastermapWMTS = await getWMTSLayer("os_licensed_background_colour");
