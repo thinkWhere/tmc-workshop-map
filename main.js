@@ -12,7 +12,7 @@ import initInteractions from "./interactions";
 // Create layer from imported functions
 const mastermapWMTS = await getWMTSLayer("os_licensed_background_colour");
 // const woodlandWMS = getWMSLayer("sf_nwss");
-// const scenicAreasWFS = getWFSLayer("osmm:osmm_topographicarea")
+// const mastermapWFS = getWFSLayer("osmm:osmm_topographicarea")
 
 // Set up a new Tile Layer
 const openStreetMap = new TileLayer({
@@ -28,7 +28,7 @@ const map = new Map({
     // openStreetMap,
     mastermapWMTS,
     // woodlandWMS,
-    // scenicAreasWFS,
+    // mastermapWFS,
   ],
   // A View object represents a simple 2D view of the map.
   // This is the object to act upon to change the center, resolution, and rotation of the map
