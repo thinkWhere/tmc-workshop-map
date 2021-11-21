@@ -1,9 +1,9 @@
 import "./style.css";
 import { Map, View } from "ol";
 import OSM from "ol/source/OSM.js";
-import getWMTSLayer from "./wmts";
 import projectionBNG from "./projection";
 import TileLayer from "ol/layer/Tile";
+import getWMTSLayer from "./wmts";
 import getWMSLayer from "./wms";
 import initPopover from "./popover";
 
