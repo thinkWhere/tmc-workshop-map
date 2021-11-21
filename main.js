@@ -1,25 +1,24 @@
 import "./style.css";
 import { Map, View } from "ol";
 import OSM from "ol/source/OSM.js";
-import getWMTSLayer from "./wmts";
 import projectionBNG from "./projection";
 import TileLayer from "ol/layer/Tile";
+import getWMTSLayer from "./wmts";
 import getWMSLayer from "./wms";
 import initPopover from "./popover";
 import getWFSLayer from "./wfs";
 import initInteractions from "./interactions";
-import initGazetteer from "./gazetteer";
 
 // Create layer from imported functions
 const mastermapWMTS = await getWMTSLayer("os_licensed_background_colour");
 // const woodlandWMS = getWMSLayer("sf_nwss");
 // const scenicAreasWFS = getWFSLayer("osmm:osmm_topographicarea")
 
-// // Set up a new Tile Layer
-// const openStreetMap = new TileLayer({
-//   // OL has a number of built in sources, such as Stamen, OpenStreetMap, and BingMaps
-//   source: new OSM(),
-// });
+// Set up a new Tile Layer
+const openStreetMap = new TileLayer({
+  // OL has a number of built in sources, such as Stamen, OpenStreetMap, and BingMaps
+  source: new OSM(),
+});
 
 // Set up an instance of an OpenLayers map
 const map = new Map({
