@@ -3,6 +3,7 @@
 html, body {
   margin: 0;
   height: 100%;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 }
 
 #map {
@@ -11,6 +12,8 @@ html, body {
   bottom: 0;
   width: 100%;
 }
+
+/* CSS for Popup */
 
 .ol-popup {
   position: absolute;
@@ -22,6 +25,10 @@ html, body {
   bottom: 12px;
   left: -50px;
   min-width: 280px;
+}
+
+#popup-content > p {
+  margin: 5px;
 }
 
 .ol-popup:after, .ol-popup:before {
@@ -59,6 +66,8 @@ html, body {
   content: "✖";
   color: black;
 }
+
+/* CSS for Gazetteer */
 
 .gazetteer {
   z-index: 1000;

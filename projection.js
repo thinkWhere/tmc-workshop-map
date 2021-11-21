@@ -8,20 +8,25 @@ proj4.defs(
   "EPSG:27700",
   "+proj=tmerc +lat_0=49 +lon_0=-2 +k=0.9996012717 +x_0=400000 +y_0=-100000 +ellps=airy +towgs84=446.448,-125.157,542.06,0.15,0.247,0.842,-20.489 +units=m +no_defs"
 );
+// Register this with OpenLayers
 register(proj4);
 
-const projectionGML = new Projection({
-  extent: [0, 0, 700000, 1300000],
-  units: 'm',
-  code: 'http://www.opengis.net/gml/srs/epsg.xml#27700',
-});
-
-const projection = new Projection({
+// Create a new Projection for BNG, with UK extents
+const projectionBNG = new Projection({
   extent: [0, 0, 700000, 1300000],
   units: "m",
   code: "EPSG:27700",
 });
 
-addEquivalentProjections([projectionGML, projection]);
+// Create a new Projection for BNG, with UK extents
+// Note: This will later be used to Fetch WFS features
+const projectionGML = new Projection({
+  extent: [0, 0, 700000, 1300000],
+  units: "m",
+  code: "http://www.opengis.net/gml/srs/epsg.xml#27700",
+});
 
-export default projection;
+// Ensure that when calling WFS, OpeLayers understands that "EPSG:27700" and "http://www.opengis.net/gml/srs/epsg.xml#27700" are equivalent 
+addEquivalentProjections([projectionGML, projectionBNG]);
+
+export default projectionBNG;

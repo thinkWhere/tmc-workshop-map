@@ -1,33 +1,41 @@
 import "./style.css";
 import { Map, View } from "ol";
-import getWMTSLayer from "./wmts";
-import TileLayer from "ol/layer/Tile";
 import OSM from "ol/source/OSM.js";
+import getWMTSLayer from "./wmts";
+import projectionBNG from "./projection";
+import TileLayer from "ol/layer/Tile";
 import getWMSLayer from "./wms";
-import getWFSLayer from "./wfs";
 import initPopover from "./popover";
-import projection from "./projection";
+import getWFSLayer from "./wfs";
 import initInteractions from "./interactions";
 import initGazetteer from "./gazetteer";
 
+// Create layer from imported functions
 const mastermapWMTS = await getWMTSLayer("os_licensed_background_colour");
 const woodlandWMS = getWMSLayer("sf_nwss");
-const scenicAreasWFS = getWFSLayer("scot_gov:sg_national_scenic_areas")
+const scenicAreasWFS = getWFSLayer("osmm:osmm_topographicarea")
 
+// Set up a new Tile Layer
 const openStreetMap = new TileLayer({
+  // OL has a number of built in sources, such as Stamen, OpenStreetMap, and BingMaps
   source: new OSM(),
 });
 
+// Set up an instance of an OpenLayers map
 const map = new Map({
+  // This is the HTML element we will target to render our map
   target: "map",
   layers: [
     // openStreetMap,
     mastermapWMTS,
-    // woodlandWMS,
-    scenicAreasWFS,
+    woodlandWMS,
+    // scenicAreasWFS,
   ],
+  // A View object represents a simple 2D view of the map.
+  // This is the object to act upon to change the center, resolution, and rotation of the map
   view: new View({
-    projection: projection,
+    // Apply imported British National Grid as the projection
+    projection: projectionBNG,
     center: [279731, 693249],
     zoom: 6,
   }),
@@ -42,6 +50,6 @@ function zoomTo(coord_string) {
   }
 }
 
-// initPopover(map, woodlandWMS);
-initInteractions(map);
-initGazetteer(zoomTo);
+initPopover(map, woodlandWMS);
+// initInteractions(map);
+// initGazetteer(zoomTo);
