@@ -12,14 +12,14 @@ import initGazetteer from "./gazetteer";
 
 // Create layer from imported functions
 const mastermapWMTS = await getWMTSLayer("os_licensed_background_colour");
-const woodlandWMS = getWMSLayer("sf_nwss");
-const scenicAreasWFS = getWFSLayer("osmm:osmm_topographicarea")
+// const woodlandWMS = getWMSLayer("sf_nwss");
+// const scenicAreasWFS = getWFSLayer("osmm:osmm_topographicarea")
 
-// Set up a new Tile Layer
-const openStreetMap = new TileLayer({
-  // OL has a number of built in sources, such as Stamen, OpenStreetMap, and BingMaps
-  source: new OSM(),
-});
+// // Set up a new Tile Layer
+// const openStreetMap = new TileLayer({
+//   // OL has a number of built in sources, such as Stamen, OpenStreetMap, and BingMaps
+//   source: new OSM(),
+// });
 
 // Set up an instance of an OpenLayers map
 const map = new Map({
@@ -28,7 +28,7 @@ const map = new Map({
   layers: [
     // openStreetMap,
     mastermapWMTS,
-    woodlandWMS,
+    // woodlandWMS,
     // scenicAreasWFS,
   ],
   // A View object represents a simple 2D view of the map.
@@ -50,6 +50,6 @@ function zoomTo(coord_string) {
   }
 }
 
-initPopover(map, woodlandWMS);
+// initPopover(map, woodlandWMS);
 // initInteractions(map);
-// initGazetteer(zoomTo);
+initGazetteer(zoomTo);
