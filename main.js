@@ -7,6 +7,7 @@ import getWMTSLayer from "./wmts";
 import getWMSLayer from "./wms";
 import initPopover from "./popover";
 import getWFSLayer from "./wfs";
+import initInteractions from "./interactions";
 
 // Create layer from imported functions
 const mastermapWMTS = await getWMTSLayer("os_licensed_background_colour");
@@ -40,3 +41,4 @@ const map = new Map({
 });
 
 // initPopover(map, woodlandWMS);
+initInteractions(map);
