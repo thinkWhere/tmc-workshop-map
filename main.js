@@ -3,6 +3,7 @@ import { Map, View } from "ol";
 import OSM from "ol/source/OSM.js";
 import projectionBNG from "./projection";
 import TileLayer from "ol/layer/Tile";
+import getWMTSLayer from "./wmts";
 import getWMSLayer from "./wms";
 
 // Create layer from imported functions
