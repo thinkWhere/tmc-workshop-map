@@ -93,7 +93,7 @@ async function callGazetteerApi(searchFor) {
     headers: {
       "Accept": "application/json",
     }
-  }).catch((/*error*/) => handleNetworkError());
+  });
   // On success, convert the result to json
   return response.json();
 }
@@ -129,11 +129,6 @@ function handleGazetteerResponses(data) {
   });
 }
 
-// Error handler
-function handleNetworkError() {
-  console.log("Network Error: Please check that you're connected to VPN");
-}
-
 // Asyncronous call to the AddressBase API
 async function callAddressBaseApi(postcode) {
   // construct the url
@@ -144,7 +139,7 @@ async function callAddressBaseApi(postcode) {
     headers: {
       "Accept": "application/json",
     }
-  }).catch((/*error*/) => handleNetworkError());
+  });
   // On success, convert the result to json
   return response.json();    
 }
