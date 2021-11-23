@@ -5,6 +5,7 @@ import projectionBNG from "./projection";
 import TileLayer from "ol/layer/Tile";
 import getWMTSLayer from "./wmts";
 import getWMSLayer from "./wms";
+import initPopover from "./popover";
 
 // Create layer from imported functions
 const mastermapWMTS = await getWMTSLayer("os_licensed_background_colour");
@@ -34,3 +35,5 @@ const map = new Map({
     zoom: 6,
   }),
 });
+
+initPopover(map, woodlandWMS);
