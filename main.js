@@ -4,9 +4,11 @@ import OSM from "ol/source/OSM.js";
 import projectionBNG from "./projection";
 import TileLayer from "ol/layer/Tile";
 import getWMTSLayer from "./wmts";
+import getWMSLayer from "./wms";
 
 // Create layer from imported functions
 const mastermapWMTS = await getWMTSLayer("os_licensed_background_colour");
+const woodlandWMS = getWMSLayer("sf_nwss");
 
 // Set up a new Tile Layer
 const openStreetMap = new TileLayer({
@@ -21,6 +23,7 @@ const map = new Map({
   layers: [
     // openStreetMap,
     mastermapWMTS,
+    woodlandWMS,
   ],
   // A View object represents a simple 2D view of the map.
   // This is the object to act upon to change the center, resolution, and rotation of the map
