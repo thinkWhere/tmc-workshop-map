@@ -8,6 +8,7 @@ import getWMSLayer from "./wms";
 import initPopover from "./popover";
 import getWFSLayer from "./wfs";
 import initInteractions from "./interactions";
+import initGazetteer from "./gazetteer";
 
 // Create layer from imported functions
 const mastermapWMTS = await getWMTSLayer("os_licensed_background_colour");
