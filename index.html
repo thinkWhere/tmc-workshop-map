@@ -12,6 +12,20 @@
       <a href="#" id="popup-closer" class="ol-popup-closer"></a>
       <div id="popup-content"></div>
     </div>
+    <div id="gazetteer" class="gazetteer">
+      <form id="gazetteer_search">
+        <input type="text" placeholder="Search Gazetteer" />
+        <button type="submit">Go</button><br />
+        <select id="gazetteer_result" disabled=true>
+        </select><br /><br />
+      </form>
+      <form id="addressbase_search">
+        <input type="text" placeholder="Enter Postcode" />
+        <button type="submit">Go</button><br />
+        <select id="addressbase_result" disabled=true>
+        </select>
+      </form>
+    </div>
     <script type="module" src="./main.js"></script>
   </body>
 </html>

@@ -66,3 +66,13 @@ html, body {
   content: "✖";
   color: black;
 }
+
+/* CSS for Gazetteer */
+
+.gazetteer {
+  z-index: 1000;
+  position: absolute;
+  left: 5vw;
+  bottom: 10vh;
+ }
+ 
